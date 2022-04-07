@@ -42,3 +42,8 @@ au BufNewFile,BufRead *.py
    \ set autoindent
    \ set fileformat=unix
 
+"Flagging Unnecessary Whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+
