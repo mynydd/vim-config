@@ -13,7 +13,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
-
 " ...
 
 " All of your Plugins must be added before the following line
@@ -26,6 +25,11 @@ set nohlsearch
 
 set splitbelow
 
+set tabstop=4
+set expandtab
+set autoindent
+set shiftwidth=4
+
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
@@ -33,15 +37,13 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-"    \ set softtabstop=4
-   \ set shiftwidth=4
-   \ set textwidth=79
-   \ set expandtab
-   \ set autoindent
-   \ set fileformat=unix
-
+au BufNewFile,BufRead *.py set tabstop=4  
+au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set textwidth=79  
+au BufNewFile,BufRead *.py set expandtab  
+au BufNewFile,BufRead *.py set autoindent  
+au BufNewFile,BufRead *.py set fileformat=unix  
+au BufNewFile,BufRead *.py set colorcolumn=80 
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
