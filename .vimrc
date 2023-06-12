@@ -11,6 +11,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'nvie/vim-flake8'
+Plugin 'flazz/vim-colorschemes'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -40,13 +41,17 @@ nnoremap <space> za
 
 au BufNewFile,BufRead *.py set tabstop=4  
 au BufNewFile,BufRead *.py set shiftwidth=4
-au BufNewFile,BufRead *.py set textwidth=88
+au BufNewFile,BufRead *.py set textwidth=120
 au BufNewFile,BufRead *.py set expandtab  
 au BufNewFile,BufRead *.py set autoindent  
 au BufNewFile,BufRead *.py set fileformat=unix  
-au BufNewFile,BufRead *.py set colorcolumn=88
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
+if &diff
+    colorscheme molokai
+    syntax off
+    set t_Co=256
+endif
 
