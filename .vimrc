@@ -21,8 +21,16 @@ Plugin 'flazz/vim-colorschemes'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+if &diff
+    set termguicolors
+    set t_Co=256
+    syntax off
+    colorscheme LightDefault
+else
+    colorscheme industry
+endif
+
 set number
-colorscheme industry
 set nohlsearch
 
 set splitbelow
@@ -47,11 +55,13 @@ au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix  
 "Flagging Unnecessary Whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
+"With reference to the following, see
+"https://vi.stackexchange.com/questions/10897/how-do-i-customize-vimdiff-colors
+hi DiffAdd      gui=none    guifg=NONE          guibg=#bada9f
+hi DiffChange   gui=none    guifg=NONE          guibg=#e5d5ac
+hi DiffDelete   gui=bold    guifg=#ff8080       guibg=#ffb0b0
+hi DiffText     gui=none    guifg=NONE          guibg=#e5d5ac
+"hi DiffText     gui=none    guifg=NONE          guibg=#8cbee2
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-if &diff
-    colorscheme molokai
-    syntax off
-    set t_Co=256
-endif
 
